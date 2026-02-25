@@ -1,0 +1,227 @@
+{
+  "Logistic Regression": {
+    "accuracy": 0.8921,
+    "precision": 0.5931,
+    "recall": 0.8954,
+    "f1": 0.7135,
+    "roc_auc": 0.9623,
+    "cm": [
+      [
+        772,
+        94
+      ],
+      [
+        16,
+        137
+      ]
+    ],
+    "train_s": 0.0051,
+    "infer_us": 0.0658,
+    "deploy": {
+      "size_kb": 0.2,
+      "ram_kb": 0.5,
+      "us": 5,
+      "uj": 0.8
+    }
+  },
+  "Decision Tree": {
+    "accuracy": 0.9254,
+    "precision": 0.7081,
+    "recall": 0.8562,
+    "f1": 0.7751,
+    "roc_auc": 0.9134,
+    "cm": [
+      [
+        812,
+        54
+      ],
+      [
+        22,
+        131
+      ]
+    ],
+    "train_s": 0.0069,
+    "infer_us": 0.1196,
+    "deploy": {
+      "size_kb": 2.5,
+      "ram_kb": 1.0,
+      "us": 10,
+      "uj": 1.5
+    }
+  },
+  "Random Forest": {
+    "accuracy": 0.9578,
+    "precision": 0.8716,
+    "recall": 0.8431,
+    "f1": 0.8571,
+    "roc_auc": 0.9812,
+    "cm": [
+      [
+        847,
+        19
+      ],
+      [
+        24,
+        129
+      ]
+    ],
+    "train_s": 0.2449,
+    "infer_us": 4.1147,
+    "deploy": {
+      "size_kb": 250,
+      "ram_kb": 50,
+      "us": 800,
+      "uj": 120
+    }
+  },
+  "XGBoost": {
+    "accuracy": 0.9598,
+    "precision": 0.8636,
+    "recall": 0.8693,
+    "f1": 0.8664,
+    "roc_auc": 0.9765,
+    "cm": [
+      [
+        845,
+        21
+      ],
+      [
+        20,
+        133
+      ]
+    ],
+    "train_s": 0.0325,
+    "infer_us": 0.722,
+    "deploy": {
+      "size_kb": 180,
+      "ram_kb": 40,
+      "us": 600,
+      "uj": 90
+    }
+  },
+  "LightGBM": {
+    "accuracy": 0.9539,
+    "precision": 0.8046,
+    "recall": 0.915,
+    "f1": 0.8563,
+    "roc_auc": 0.9793,
+    "cm": [
+      [
+        832,
+        34
+      ],
+      [
+        13,
+        140
+      ]
+    ],
+    "train_s": 0.0369,
+    "infer_us": 1.6305,
+    "deploy": {
+      "size_kb": 150,
+      "ram_kb": 35,
+      "us": 500,
+      "uj": 75
+    }
+  },
+  "k-NN": {
+    "accuracy": 0.9676,
+    "precision": 0.9478,
+    "recall": 0.8301,
+    "f1": 0.885,
+    "roc_auc": 0.9523,
+    "cm": [
+      [
+        859,
+        7
+      ],
+      [
+        26,
+        127
+      ]
+    ],
+    "train_s": 0.0015,
+    "infer_us": 12.5338,
+    "deploy": {
+      "size_kb": 200,
+      "ram_kb": 200,
+      "us": 2000,
+      "uj": 300
+    }
+  },
+  "MLP (TinyML)": {
+    "accuracy": 0.9715,
+    "precision": 0.9306,
+    "recall": 0.8758,
+    "f1": 0.9024,
+    "roc_auc": 0.9866,
+    "cm": [
+      [
+        856,
+        10
+      ],
+      [
+        19,
+        134
+      ]
+    ],
+    "train_s": 0.2815,
+    "infer_us": 0.1739,
+    "deploy": {
+      "size_kb": 1.5,
+      "ram_kb": 2.0,
+      "us": 25,
+      "uj": 4.0
+    }
+  },
+  "SNN (LIF)": {
+    "accuracy": 0.9362,
+    "precision": 0.8729,
+    "recall": 0.6732,
+    "f1": 0.7601,
+    "roc_auc": 0.8279,
+    "cm": [
+      [
+        851,
+        15
+      ],
+      [
+        50,
+        103
+      ]
+    ],
+    "train_s": 0,
+    "infer_us": 4.6724,
+    "deploy": {
+      "size_kb": 0.3,
+      "ram_kb": 0.2,
+      "us": 8,
+      "uj": 0.5
+    }
+  },
+  "Threshold Baseline": {
+    "accuracy": 0.9127,
+    "precision": 0.6702,
+    "recall": 0.8235,
+    "f1": 0.739,
+    "roc_auc": 0.876,
+    "cm": [
+      [
+        804,
+        62
+      ],
+      [
+        27,
+        126
+      ]
+    ],
+    "train_s": 0,
+    "infer_us": 0.5,
+    "deploy": {
+      "size_kb": 0.05,
+      "ram_kb": 0.1,
+      "us": 2,
+      "uj": 0.2
+    }
+  }
+}

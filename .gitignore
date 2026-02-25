@@ -10,10 +10,17 @@ dist/
 build/
 .pytest_cache/
 
-# Datasets (large binary files)
+# Datasets — downloaded (large, re-downloadable)
 datasets/mit-bih/
 datasets/bidmc/
 datasets/mimic/
+
+# Datasets — generated (re-creatable via generate_datasets.py)
+datasets/bidmc-synthetic/
+datasets/mit-bih-synthetic/
+datasets/synthetic-ecg/
+datasets/synthetic-ppg/
+datasets/combined/
 
 # PlatformIO
 firmware/.pio/
@@ -25,7 +32,6 @@ firmware/.vscode/
 
 # macOS
 .DS_Store
-.AppleDouble
 
 # IDE
 .idea/

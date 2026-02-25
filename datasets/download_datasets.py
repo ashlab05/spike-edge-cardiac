@@ -25,13 +25,20 @@ except ImportError:
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# ── MIT-BIH Arrhythmia Database ───────────────────────────────────────────────
+# ── MIT-BIH Arrhythmia Database (all 48 records) ─────────────────────────────
 MITBIH_DIR = os.path.join(BASE_DIR, "mit-bih")
-MITBIH_RECORDS = ["100", "101", "105", "108", "200", "213"]
+MITBIH_RECORDS = [
+    "100", "101", "102", "103", "104", "105", "106", "107", "108", "109",
+    "111", "112", "113", "114", "115", "116", "117", "118", "119",
+    "121", "122", "123", "124",
+    "200", "201", "202", "203", "205", "207", "208", "209", "210",
+    "212", "213", "214", "215", "217", "219", "220", "221", "222",
+    "223", "228", "230", "231", "232", "233", "234",
+]
 
-# ── BIDMC PPG Dataset ─────────────────────────────────────────────────────────
+# ── BIDMC PPG Dataset (all 53 records) ───────────────────────────────────────
 BIDMC_DIR = os.path.join(BASE_DIR, "bidmc")
-BIDMC_RECORDS = [f"{i:02d}" for i in range(1, 6)]   # bidmc01 – bidmc05
+BIDMC_RECORDS = [f"{i:02d}" for i in range(1, 54)]   # bidmc01 – bidmc53
 
 
 def download_mitbih():

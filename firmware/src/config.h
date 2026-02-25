@@ -4,6 +4,17 @@
 // Uncomment exactly one:
 #define MODE_SIMULATION
 // #define MODE_HARDWARE
+// #define MODE_DATASET
+
+// ── Hardware sensor availability (only used in MODE_HARDWARE) ─────────────────
+// Comment/uncomment to match what is physically soldered:
+#define HW_TEMP_ENABLED          // DS18B20 connected (GPIO 5)
+// #define HW_MAX30100_ENABLED   // MAX30100 not yet soldered (GPIO 8/9)
+// #define HW_AD8232_ENABLED     // AD8232 not yet soldered (GPIO 4)
+
+// ── Hardware fallback (simulated baseline for unconnected sensors) ─────────────
+#define HW_FALLBACK_HR    SIM_NORMAL_HR    // 72.0f — used when MAX30100 absent
+#define HW_FALLBACK_SPO2  SIM_NORMAL_SPO2  // 98.0f — used when MAX30100 absent
 
 // ── Pin assignments ───────────────────────────────────────────────────────────
 #define PIN_TEMP_SENSOR   5    // DS18B20 one-wire bus
