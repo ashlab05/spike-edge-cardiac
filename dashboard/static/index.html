@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spike-Edge Cardiac Monitor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+
+    <!-- ── Header ─────────────────────────────────────────────────────────── -->
+    <header>
+      <div class="header-left">
+        <div class="logo-icon">⚡</div>
+        <div>
+          <div class="site-title">Spike-Edge Cardiac Monitor</div>
+          <div class="site-subtitle">ESP32-S3 · SNN · Multimodal</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <span id="ws-badge" class="status-badge disconnected">
+          <span class="status-dot"></span>
+          <span id="ws-label">Disconnected</span>
+        </span>
+      </div>
+    </header>
+
+    <!-- ── Nav tabs ───────────────────────────────────────────────────────── -->
+    <nav>
+      <button class="tab-btn active" data-tab="monitor">Live Monitor</button>
+      <button class="tab-btn" data-tab="simulator">Simulator Control</button>
+    </nav>
+
+    <!-- ── Main ───────────────────────────────────────────────────────────── -->
+    <main>
+
+      <!-- ═══════════════════ TAB 1: Live Monitor ═══════════════════════════ -->
+      <section id="tab-monitor" class="tab-panel active">
+
+        <!-- Metric cards -->
+        <div class="metrics-row">
+          <div class="metric-card" id="card-hr">
+            <div class="metric-label">Heart Rate</div>
+            <div class="metric-value cyan" id="val-hr">--</div>
+            <div class="metric-unit">bpm</div>
+          </div>
+          <div class="metric-card" id="card-spo2">
+            <div class="metric-label">SpO₂</div>
+            <div class="metric-value green" id="val-spo2">--</div>
+            <div class="metric-unit">%</div>
+          </div>
+          <div class="metric-card" id="card-temp">
+            <div class="metric-label">Temperature</div>
+            <div class="metric-value orange" id="val-temp">--</div>
+            <div class="metric-unit">°C</div>
+          </div>
+          <div class="metric-card" id="card-status">
+            <div class="metric-label">SNN Status</div>
+            <div class="metric-value cyan" id="val-status">--</div>
+            <div class="metric-unit" id="val-mode">Simulator</div>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div class="chart-title">Heart Rate (bpm)</div>
+            <div class="chart-canvas-wrap">
+              <canvas id="chart-hr"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">SpO₂ (%)</div>
+            <div class="chart-canvas-wrap">
+              <canvas id="chart-spo2"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">Temperature (°C)</div>
+            <div class="chart-canvas-wrap">
+              <canvas id="chart-temp"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════ TAB 2: Simulator Control ══════════════════════ -->
+      <section id="tab-simulator" class="tab-panel">
+        <div class="sim-layout">
+
+          <!-- Left: sliders + buttons -->
+          <div class="card sim-controls">
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label">Heart Rate</span>
+                <span class="slider-val" id="disp-hr">72 bpm</span>
+              </div>
+              <input type="range" id="slider-hr" min="40" max="200" value="72" step="1" />
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label">SpO₂</span>
+                <span class="slider-val" id="disp-spo2">98 %</span>
+              </div>
+              <input type="range" id="slider-spo2" min="80" max="100" value="98" step="0.5" class="green-slider" />
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label">Temperature</span>
+                <span class="slider-val" id="disp-temp">36.8 °C</span>
+              </div>
+              <input type="range" id="slider-temp" min="35" max="42" value="36.8" step="0.1" class="orange-slider" />
+            </div>
+
+            <div class="sim-divider"></div>
+
+            <div class="btn-row">
+              <button class="btn btn-danger" id="btn-inject">⚡ Inject Anomaly</button>
+              <button class="btn btn-success" id="btn-reset">↺ Reset Normal</button>
+            </div>
+
+          </div>
+
+          <!-- Right: live preview -->
+          <div>
+            <div class="preview-card">
+              <div class="preview-title">Live Override Preview</div>
+
+              <div class="preview-row">
+                <span class="preview-key">Heart Rate</span>
+                <span class="preview-val cyan" id="prev-hr">72 bpm</span>
+              </div>
+              <div class="preview-row">
+                <span class="preview-key">SpO₂</span>
+                <span class="preview-val green" id="prev-spo2">98 %</span>
+              </div>
+              <div class="preview-row">
+                <span class="preview-key">Temperature</span>
+                <span class="preview-val orange" id="prev-temp">36.8 °C</span>
+              </div>
+
+              <div class="inject-status" id="inject-status">
+                ⚠ ANOMALY INJECTED — 5s burst active
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      Spike-Edge Cardiac Anomaly Detection &nbsp;·&nbsp; ESP32-S3 LIF-SNN &nbsp;·&nbsp; Demo Mode
+    </footer>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
