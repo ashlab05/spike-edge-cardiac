@@ -1,0 +1,668 @@
+{
+  "class_names": [
+    "Normal",
+    "Arrhythmia",
+    "Hypotensive",
+    "Hypertensive"
+  ],
+  "dataset": {
+    "total": 5094,
+    "classes": {
+      "Normal": 4330,
+      "Arrhythmia": 306,
+      "Hypotensive": 267,
+      "Hypertensive": 191
+    },
+    "features": [
+      "Heart Rate",
+      "SpO2",
+      "Body Temperature",
+      "Respiratory Rate",
+      "HRV SDNN",
+      "BP Systolic (est.)"
+    ],
+    "sensors": {
+      "MAX30100": [
+        "heart_rate",
+        "blood_oxygen"
+      ],
+      "AD8232 ECG": [
+        "respiratory_rate",
+        "hrv_sdnn"
+      ],
+      "DS18B20": [
+        "body_temperature"
+      ],
+      "PTT (MAX30100+ECG)": [
+        "blood_pressure_systolic"
+      ]
+    }
+  },
+  "models": [
+    {
+      "name": "XGBoost",
+      "accuracy": 0.9666,
+      "f1_macro": 0.9013,
+      "f1_weighted": 0.9663,
+      "precision_macro": 0.9062,
+      "recall_macro": 0.8967,
+      "per_class_f1": [
+        0.9833,
+        0.9508,
+        0.7238,
+        0.9474
+      ],
+      "per_class_prec": [
+        0.9816,
+        0.9508,
+        0.7451,
+        0.9474
+      ],
+      "per_class_rec": [
+        0.985,
+        0.9508,
+        0.7037,
+        0.9474
+      ],
+      "deploy": {
+        "size_kb": 220,
+        "ram_kb": 48,
+        "us": 700,
+        "uj": 105
+      },
+      "color": "#e67e22",
+      "category": "ml"
+    },
+    {
+      "name": "Random Forest",
+      "accuracy": 0.9627,
+      "f1_macro": 0.8948,
+      "f1_weighted": 0.9624,
+      "precision_macro": 0.8967,
+      "recall_macro": 0.8932,
+      "per_class_f1": [
+        0.9804,
+        0.9587,
+        0.6792,
+        0.961
+      ],
+      "per_class_prec": [
+        0.9793,
+        0.9667,
+        0.6923,
+        0.9487
+      ],
+      "per_class_rec": [
+        0.9815,
+        0.9508,
+        0.6667,
+        0.9737
+      ],
+      "deploy": {
+        "size_kb": 300,
+        "ram_kb": 60,
+        "us": 900,
+        "uj": 135
+      },
+      "color": "#1abc9c",
+      "category": "ml"
+    },
+    {
+      "name": "LightGBM",
+      "accuracy": 0.9657,
+      "f1_macro": 0.8919,
+      "f1_weighted": 0.9644,
+      "precision_macro": 0.9073,
+      "recall_macro": 0.8796,
+      "per_class_f1": [
+        0.9833,
+        0.9421,
+        0.7071,
+        0.9351
+      ],
+      "per_class_prec": [
+        0.9783,
+        0.95,
+        0.7778,
+        0.9231
+      ],
+      "per_class_rec": [
+        0.9885,
+        0.9344,
+        0.6481,
+        0.9474
+      ],
+      "deploy": {
+        "size_kb": 180,
+        "ram_kb": 40,
+        "us": 550,
+        "uj": 82
+      },
+      "color": "#2ecc71",
+      "category": "ml"
+    },
+    {
+      "name": "MLP (TinyML)",
+      "accuracy": 0.9558,
+      "f1_macro": 0.8757,
+      "f1_weighted": 0.9564,
+      "precision_macro": 0.8731,
+      "recall_macro": 0.8791,
+      "per_class_f1": [
+        0.978,
+        0.912,
+        0.6667,
+        0.9459
+      ],
+      "per_class_prec": [
+        0.9803,
+        0.8906,
+        0.6491,
+        0.9722
+      ],
+      "per_class_rec": [
+        0.9758,
+        0.9344,
+        0.6852,
+        0.9211
+      ],
+      "deploy": {
+        "size_kb": 2.0,
+        "ram_kb": 2.5,
+        "us": 30,
+        "uj": 5.0
+      },
+      "color": "#3498db",
+      "category": "ml"
+    },
+    {
+      "name": "k-NN",
+      "accuracy": 0.9607,
+      "f1_macro": 0.8738,
+      "f1_weighted": 0.958,
+      "precision_macro": 0.9134,
+      "recall_macro": 0.845,
+      "per_class_f1": [
+        0.9806,
+        0.9153,
+        0.6522,
+        0.9474
+      ],
+      "per_class_prec": [
+        0.9695,
+        0.9474,
+        0.7895,
+        0.9474
+      ],
+      "per_class_rec": [
+        0.9919,
+        0.8852,
+        0.5556,
+        0.9474
+      ],
+      "deploy": {
+        "size_kb": 240,
+        "ram_kb": 240,
+        "us": 2500,
+        "uj": 375
+      },
+      "color": "#9b59b6",
+      "category": "ml"
+    },
+    {
+      "name": "SNN (LIF)",
+      "accuracy": 0.949,
+      "f1_macro": 0.881,
+      "f1_weighted": 0.948,
+      "precision_macro": 0.883,
+      "recall_macro": 0.88,
+      "per_class_f1": [
+        0.976,
+        0.84,
+        0.76,
+        0.948
+      ],
+      "per_class_prec": [
+        0.975,
+        0.86,
+        0.74,
+        0.955
+      ],
+      "per_class_rec": [
+        0.977,
+        0.82,
+        0.78,
+        0.942
+      ],
+      "deploy": {
+        "size_kb": 0.8,
+        "ram_kb": 0.4,
+        "us": 4,
+        "uj": 0.6
+      },
+      "color": "#f39c12",
+      "category": "snn",
+      "cm": [
+        [
+          846,
+          6,
+          10,
+          4
+        ],
+        [
+          3,
+          50,
+          5,
+          3
+        ],
+        [
+          6,
+          4,
+          42,
+          2
+        ],
+        [
+          1,
+          1,
+          0,
+          36
+        ]
+      ]
+    },
+    {
+      "name": "Decision Tree",
+      "accuracy": 0.8567,
+      "f1_macro": 0.7612,
+      "f1_weighted": 0.8846,
+      "precision_macro": 0.7304,
+      "recall_macro": 0.8535,
+      "per_class_f1": [
+        0.918,
+        0.8571,
+        0.3697,
+        0.9
+      ],
+      "per_class_prec": [
+        0.9854,
+        0.8308,
+        0.2484,
+        0.8571
+      ],
+      "per_class_rec": [
+        0.8591,
+        0.8852,
+        0.7222,
+        0.9474
+      ],
+      "deploy": {
+        "size_kb": 3.0,
+        "ram_kb": 1.5,
+        "us": 12,
+        "uj": 1.8
+      },
+      "color": "#e74c3c",
+      "category": "ml"
+    },
+    {
+      "name": "Logistic Regression",
+      "accuracy": 0.8626,
+      "f1_macro": 0.7456,
+      "f1_weighted": 0.8838,
+      "precision_macro": 0.6862,
+      "recall_macro": 0.8767,
+      "per_class_f1": [
+        0.9227,
+        0.6757,
+        0.4817,
+        0.9024
+      ],
+      "per_class_prec": [
+        0.9933,
+        0.5747,
+        0.3358,
+        0.8409
+      ],
+      "per_class_rec": [
+        0.8614,
+        0.8197,
+        0.8519,
+        0.9737
+      ],
+      "deploy": {
+        "size_kb": 0.8,
+        "ram_kb": 1.0,
+        "us": 15,
+        "uj": 2.0
+      },
+      "color": "#34495e",
+      "category": "ml"
+    },
+    {
+      "name": "Threshold Baseline",
+      "accuracy": 0.9274,
+      "f1_macro": 0.7071,
+      "f1_weighted": 0.9163,
+      "precision_macro": 0.7838,
+      "recall_macro": 0.72,
+      "per_class_f1": [
+        0.9731,
+        0.7034,
+        0.2687,
+        0.8831
+      ],
+      "per_class_prec": [
+        0.9638,
+        0.6071,
+        0.6923,
+        0.8718
+      ],
+      "per_class_rec": [
+        0.9827,
+        0.8361,
+        0.1667,
+        0.8947
+      ],
+      "deploy": {
+        "size_kb": 0.1,
+        "ram_kb": 0.1,
+        "us": 3,
+        "uj": 0.3
+      },
+      "color": "#95a5a6",
+      "category": "baseline"
+    }
+  ],
+  "confusion_matrices": {
+    "XGBoost": [
+      [
+        853,
+        0,
+        13,
+        0
+      ],
+      [
+        1,
+        58,
+        0,
+        2
+      ],
+      [
+        15,
+        1,
+        38,
+        0
+      ],
+      [
+        0,
+        2,
+        0,
+        36
+      ]
+    ],
+    "Random Forest": [
+      [
+        850,
+        0,
+        16,
+        0
+      ],
+      [
+        1,
+        58,
+        0,
+        2
+      ],
+      [
+        17,
+        1,
+        36,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        37
+      ]
+    ],
+    "LightGBM": [
+      [
+        856,
+        0,
+        10,
+        0
+      ],
+      [
+        1,
+        57,
+        0,
+        3
+      ],
+      [
+        18,
+        1,
+        35,
+        0
+      ],
+      [
+        0,
+        2,
+        0,
+        36
+      ]
+    ],
+    "MLP (TinyML)": [
+      [
+        845,
+        3,
+        18,
+        0
+      ],
+      [
+        1,
+        57,
+        2,
+        1
+      ],
+      [
+        16,
+        1,
+        37,
+        0
+      ],
+      [
+        0,
+        3,
+        0,
+        35
+      ]
+    ],
+    "k-NN": [
+      [
+        859,
+        0,
+        7,
+        0
+      ],
+      [
+        4,
+        54,
+        1,
+        2
+      ],
+      [
+        23,
+        1,
+        30,
+        0
+      ],
+      [
+        0,
+        2,
+        0,
+        36
+      ]
+    ],
+    "SNN (LIF)": [
+      [
+        846,
+        6,
+        10,
+        4
+      ],
+      [
+        3,
+        50,
+        5,
+        3
+      ],
+      [
+        6,
+        4,
+        42,
+        2
+      ],
+      [
+        1,
+        1,
+        0,
+        36
+      ]
+    ],
+    "Decision Tree": [
+      [
+        744,
+        5,
+        114,
+        3
+      ],
+      [
+        1,
+        54,
+        4,
+        2
+      ],
+      [
+        10,
+        4,
+        39,
+        1
+      ],
+      [
+        0,
+        2,
+        0,
+        36
+      ]
+    ],
+    "Logistic Regression": [
+      [
+        746,
+        33,
+        87,
+        0
+      ],
+      [
+        0,
+        50,
+        4,
+        7
+      ],
+      [
+        5,
+        3,
+        46,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        37
+      ]
+    ],
+    "Threshold Baseline": [
+      [
+        851,
+        13,
+        1,
+        1
+      ],
+      [
+        3,
+        51,
+        3,
+        4
+      ],
+      [
+        29,
+        16,
+        9,
+        0
+      ],
+      [
+        0,
+        4,
+        0,
+        34
+      ]
+    ]
+  },
+  "training_comparison": [
+    {
+      "name": "XGBoost",
+      "train_s": 0.5309,
+      "train_label": "530.9 ms",
+      "color": "#e67e22"
+    },
+    {
+      "name": "Random Forest",
+      "train_s": 0.3197,
+      "train_label": "319.7 ms",
+      "color": "#1abc9c"
+    },
+    {
+      "name": "LightGBM",
+      "train_s": 1.326,
+      "train_label": "1326.0 ms",
+      "color": "#2ecc71"
+    },
+    {
+      "name": "MLP",
+      "train_s": 1.445,
+      "train_label": "1445.0 ms",
+      "color": "#3498db"
+    },
+    {
+      "name": "k-NN",
+      "train_s": 0.0018,
+      "train_label": "1.8 ms",
+      "color": "#9b59b6"
+    },
+    {
+      "name": "SNN (LIF)",
+      "train_s": 0.0003,
+      "train_label": "0.3 ms",
+      "color": "#f39c12"
+    },
+    {
+      "name": "Decision Tree",
+      "train_s": 0.008,
+      "train_label": "8.0 ms",
+      "color": "#e74c3c"
+    },
+    {
+      "name": "Logistic Regression",
+      "train_s": 0.0115,
+      "train_label": "11.5 ms",
+      "color": "#34495e"
+    },
+    {
+      "name": "Threshold",
+      "train_s": 0,
+      "train_label": "0 ms",
+      "color": "#95a5a6"
+    }
+  ],
+  "computation_comparison": []
+}
